@@ -1,5 +1,5 @@
 <div class="component">
-  <main>
+  <main *ngIf="rounds">
     <h1>Игра "Кто хочет стать миллионером"</h1>
     <p>
       Добро пожаловать в онлайн-версию знаменитого игрового шоу "Кто хочет стать
@@ -89,4 +89,5 @@
       </div>
     </div>
   </main>
+  <mat-spinner *ngIf="!rounds"></mat-spinner>
 </div>
