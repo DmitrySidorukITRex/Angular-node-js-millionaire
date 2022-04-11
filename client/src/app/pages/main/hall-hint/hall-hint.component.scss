@@ -1,0 +1,14 @@
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  .chart-item {
+    margin-right: 10px;
+
+    .graph {
+      background-color: black;
+      width: 35px;
+    }
+  }
+}
