@@ -1,0 +1,92 @@
+<div class="component">
+  <main>
+    <h1>Игра "Кто хочет стать миллионером"</h1>
+    <p>
+      Добро пожаловать в онлайн-версию знаменитого игрового шоу "Кто хочет стать
+      миллионером?". В этой уникальной игре можно ощутить себя настоящим
+      участником телепрограммы, завоевавшей миллионы поклонников по всему миру.
+      Онлайн версия игры позволит в режиме реального времени стать главным
+      героем нашумевшей передачи.
+    </p>
+    <p>
+      Игра доступна для каждого, кто хочет проверить себя в серии тестов,
+      состоящих из интересных вопросов и неожиданных ответов. Испытайте свою
+      интеллект просто используя свои знания и весело проводя время.
+    </p>
+    <p>
+      Игра состоит из 15 вопросов. Уровень сложности и шансы получить деньги
+      увеличиваются с каждым новым вопросом. Например, при ответе на первый блок
+      вопросов Ваш призовой фонд составит от 100 до 1000 рублей. Играйте,
+      правильно отвечайте на вопросы в процессе игры – и призовой фонд будет
+      увеличиваться на глазах, пока Вы не дойдете до финального вопроса, и если
+      Вы ответите на него правильно, то станете счастливым обладателем миллиона
+      рублей!
+    </p>
+    <p>
+      Ключом к успеху является Ваши интеллект, так что вперед за призом!
+      Вооружившись самыми разнообразными знаниями, которые Вы приобрели за свою
+      жизнь, Вы сможете легко и быстро заработать свой миллион рублей!
+    </p>
+
+    <div class="info">
+      <div class="logo">
+        <div class="hints">
+          <div
+            class="half"
+            [ngClass]="{ disable: isHalfHintActivated }"
+            (click)="onHalfHint()"
+          ></div>
+          <div
+            class="hall"
+            [ngClass]="{ disable: isHallHintActivated }"
+            (click)="onHallHint()"
+          ></div>
+          <div
+            class="call"
+            [ngClass]="{ disable: isCallHintActivated }"
+            (click)="onCallHint()"
+          ></div>
+        </div>
+        <img src="assets/imgs/logo.png" />
+      </div>
+      <div class="results">
+        <div
+          class="results-item"
+          [ngClass]="{
+            'active-round': currentRoundIndex === i,
+            'non-burnable': isNonBurnable(result.round)
+          }"
+          *ngFor="let result of results; let i = index"
+        >
+          <span class="round">{{ result.round }}</span>
+          <span>{{ "$ " + result.money }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="game" *ngIf="rounds">
+      <div class="content">
+        <div class="question">
+          <span>{{ rounds[currentRoundIndex].question }}</span>
+        </div>
+        <div class="answers">
+          <div
+            class="answers-item"
+            [ngClass]="{
+              active: currentAnswer === answer,
+              right: rightAnswer === answer
+            }"
+            *ngFor="
+              let answer of rounds[currentRoundIndex].answers;
+              let i = index
+            "
+            (click)="onAnswer(answer)"
+          >
+            {{ getLetter(i) + ": " + answer }}
+          </div>
+          <div class="roundNumber">{{ currentRoundIndex + 1 }}</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

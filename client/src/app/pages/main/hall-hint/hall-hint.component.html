@@ -1,0 +1,13 @@
+<div class="component">
+  <div class="chart">
+    <div class="chart-item" *ngFor="let item of chart; let i = index">
+      <div
+        class="graph"
+        [ngStyle]="{ 'height.px': item.count * 2 }"
+        [ngClass]="{i}"
+      ></div>
+      <div class="count">{{ item.count + " % " }}</div>
+      <div class="letter">{{ item.letter }}</div>
+    </div>
+  </div>
+</div>
