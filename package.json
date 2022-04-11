@@ -1,0 +1,35 @@
+{
+  "name": "millionaire",
+  "version": "1.0.0",
+  "description": "millionaire app with node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "server": "nodemon index",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DmitrySidorukITRex/Millionaire.git"
+  },
+  "keywords": [
+    "express",
+    "angular"
+  ],
+  "author": "Dmitry Sidoruk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DmitrySidorukITRex/Millionaire/issues"
+  },
+  "homepage": "https://github.com/DmitrySidorukITRex/Millionaire#readme",
+  "dependencies": {
+    "concurrently": "^7.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
+  }
+}
